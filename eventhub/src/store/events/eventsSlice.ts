@@ -17,7 +17,7 @@ export const fetchEvents = createAsyncThunk<EventsResponse, EventsQuery>(
   async (eventsQuery, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_SERVER_ROOT_URL}/events`,
+        `${import.meta.env.VITE_SERVER_ROOT_URL}/events`,
         { params: eventsQuery }
       );
       return response.data;

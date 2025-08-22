@@ -33,3 +33,17 @@ export interface EventsQuery {
   sortOrder: Sorting;
   searchQuery: string;
 }
+
+export interface SalesState {
+  topEventsBySales: EventSales[];
+  topEventsByAmount: EventSales[];
+  status: RequestStatus;
+  error: string | null;
+}
+
+export interface EventSales {
+  eventId: string;
+  eventName: string;
+  salesCount: number;
+  totalAmountInCents: number;
+}

@@ -1,4 +1,4 @@
-import EventsContainer from "./containers/EventsContainer";
+import EventsContainer from "./containers/events/EventsContainer";
 
 function App() {
   return (

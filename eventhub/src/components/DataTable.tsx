@@ -1,9 +1,10 @@
 import { Pagination } from "./Pagination";
 import { Card, CardContent } from "./ui/card";
-import { cn } from "@/lib/utils";
+import { cn, formatDateTime } from "@/lib/utils";
 import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import type { Sorting } from "@/types/types";
 import { Spinner } from "./ui/spinner";
+
 
 interface DataTableProps<T> {
   data: T[];
@@ -31,7 +32,7 @@ export function DataTable<T extends { id: string | number }>({
   loading,
 }: DataTableProps<T>) {
   return (
-    <Card className="relative rounded-2xl shadow-lg p-6 bg-white dark:bg-gray-800">
+    <Card className="relative rounded-2xl shadow-lg p-6 bg-white dark:bg-gray-800 w-full">
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center bg-white/70 dark:bg-gray-800/70 z-10">
           <Spinner className="w-8 h-8 text-blue-500" />
@@ -63,7 +64,7 @@ export function DataTable<T extends { id: string | number }>({
                     )
                   }
                   className={cn(
-                    "border-b border-gray-200 dark:border-gray-600 p-2 text-sm font-semibold cursor-pointer select-none",
+                    "border-b border-gray-200 dark:border-gray-600 p-3 text-sm font-semibold cursor-pointer select-none",
                     sortKey === col.key && "text-primary"
                   )}
                 >
@@ -100,9 +101,9 @@ export function DataTable<T extends { id: string | number }>({
                   {columns.map((col) => (
                     <td
                       key={String(col.key)}
-                      className="p-2 text-sm text-gray-800 dark:text-gray-200"
+                      className="p-3 text-sm text-gray-800 dark:text-gray-200"
                     >
-                      {String(row[col.key])}
+                      {formatDateTime(row[col.key], String(col.key))}
                     </td>
                   ))}
                 </tr>
@@ -119,7 +120,7 @@ export function DataTable<T extends { id: string | number }>({
             )}
           </tbody>
         </table>
-        <div className="mt-4">
+        <div className="mt-6 flex justify-center">
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}

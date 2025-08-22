@@ -15,7 +15,7 @@ export function Pagination({
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
   return (
-    <div className="flex justify-between items-center mt-4">
+    <div className="flex justify-between items-center mt-4 w-full max-w-md mx-auto px-4">
       <Button
         variant="outline"
         disabled={isFirstPage}

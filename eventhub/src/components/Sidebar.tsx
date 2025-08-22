@@ -7,12 +7,14 @@ interface SidebarProps {
 
 export function Sidebar({ title, children }: SidebarProps) {
   return (
-    <Card className="rounded-2xl shadow p-4">
-      <CardHeader>
-        <CardTitle className="text-md font-semibold" />
-        {title}
+    <Card className="rounded-2xl shadow-lg p-4 h-fit">
+      <CardHeader className="pb-1">
+        <CardTitle className="text-md font-semibold text-gray-800 dark:text-gray-200">
+          {title}
+        </CardTitle>
+        <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2"></div>
       </CardHeader>
-      <CardContent>{children}</CardContent>
+      <CardContent className="pt-2">{children}</CardContent>
     </Card>
   );
 }

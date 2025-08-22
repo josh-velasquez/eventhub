@@ -11,7 +11,7 @@
     <PackageReference Include="NHibernate" Version="5.5.2" />
     <PackageReference Include="NHibernate.Linq" Version="1.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
-    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
+    <!-- <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.8" /> -->
   </ItemGroup>
 
 </Project>
